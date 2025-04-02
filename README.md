@@ -1,6 +1,8 @@
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Framework: NestJS
+- Database: PostgreSQL
+- ORM: Prisma
 
 ## Project setup
 
