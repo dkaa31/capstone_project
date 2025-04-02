@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id          String   @id @default(uuid())
+    name        String
+    phoneNumber String   @unique
+    email       String   @unique
+    password    String
+    picture     String   @default("default.jpeg")
+    status      Status   @default(PENDING)
+    createdAt   DateTime @default(now())
+}
+
+enum Status {
+    PENDING
+    ACTIVE
+    SUSPENDED
+}
+
+model TicketUser {
+    id        String   @id @default(uuid())
+    email     String   @unique
+    type      Type
+    used      Usage    @default(UNUSED)
+    otp       String   @unique
+    expiresAt DateTime
+}
+
+model TicketResetPassword {
+    id        String   @id @default(uuid())
+    email     String   @unique
+    ticket_id String   @unique
+    expiresAt DateTime
+}
+
+enum Type {
+    REGIS
+    UPDATE
+}
+
+enum Usage {
+    UNUSED
+    USED
+}
