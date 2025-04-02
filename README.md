@@ -1,27 +1,3 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
@@ -45,55 +21,356 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Run tests
+## Package Resource
+- @nestjs/commong
+- @nestjs/config
+- @nestjs/core
+- @nestjs/jwt
+- @nestjs/passport
+- @nestjs/platform-express
+- @nestjs/throttler
+- @nestjs/client
+- @nestjs/jsonwebtoken
+- bcrypt
+- class-transformer
+- class-validator
+- hbs
+- jsonwebtoken
+- multer
+- passport
+- passport-jwt
+- postmark
+- 
 
-```bash
-# unit tests
-$ npm run test
+# User Spec
 
-# e2e tests
-$ npm run test:e2e
+- id String (auto increment)
+- name String
+- phoneNumber String (unique)
+- password String (encrypted bcrypt)
+- email String (unique)
+- picture String (default: default.jpeg image on server)
+- status Enum (PENDING | ACTIVE | SUSPENDED) after register otp send via email
+- createdAt DateTime
 
-# test coverage
-$ npm run test:cov
+
+## Register
+
+### Endpoint: POST <u>/users/register</u>
+
+#### Request Body:
+
+```json
+{
+    "name": "ApiiwDev",
+    "email": "admin@apiiwdev.my.id",
+    "phoneNumber": "085864702154",
+    "password": "ApiiwDev"
+}
 ```
 
-## Deployment
+#### Response (Success)
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g mau
-$ mau deploy
+```json
+{
+    "data": {
+        "message": "Akun berhasil dibuat, mohon masukan OTP yang sudah dikirimkan ke email Anda.",
+        "statusCode": 201
+    }
+}
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
-## Resources
+#### Response (Failed)
 
-Check out a few resources that may come in handy when working with NestJS:
+```json
+{
+    "error": {
+        "message": "...",
+        "statusCode": 400 | 500
+    }
+}
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+---
 
-## Support
+## Login
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Endpoint: POST <u>/users/login</u>
 
-## Stay in touch
+#### Request Body:
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```json
+{
+    "phoneNumber": "085864702154",
+    "password": "ApiiwDev"
+}
+```
 
-## License
+#### Response (Success)
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```json
+{
+    "data": {
+        "message": "Login berhasil.",
+        "user": {
+            "userId": "3f45a2ee-5269-4176-b99e-3e24514a198f",
+            "phoneNumber": "085864702154",
+            "name": "Afii"
+        },
+        "token": "..."
+    }
+}
+```
+
+#### Response (Failed)
+
+```json
+{
+    "error": {
+        "message": "...",
+        "statusCode": 400 | 500
+    }
+}
+```
+
+---
+
+## Verify Account
+
+### Endpoint: POST <u>/users/verify</u>
+
+#### Request Body:
+
+```json
+{
+    "email": "admin@apiiwdev.my.id",
+    "otp": "..."
+}
+```
+
+#### Response (Success)
+
+```json
+{
+    "data": {
+        "message": "OTP Valid.",
+        "statusCode": 200
+    }
+}
+```
+
+#### Response (Failed)
+
+```json
+{
+    "error": {
+        "message": "...",
+        "statusCode": 400 | 500
+    }
+}
+```
+
+---
+
+## Forgot Password
+
+### Endpoint: POST <u>/users/forgot-password</u>
+
+#### Request Body:
+
+```json
+{
+    "email": "admin@apiiwdev.my.id"
+}
+```
+
+### Response (Success)
+
+```json
+{
+    "data": {
+        "message": "Mohon cek email: admin@apiiwdev.my.id, kode OTP berlaku 15 menit."
+        "statusCode": 201
+    }
+}
+```
+
+### Reponse (Failed)
+
+```json
+{
+    "error": {
+        "message": "...",
+        "statusCode": 400 | 500
+    }
+}
+```
+
+---
+
+## Verify OTP (Forgot Password)
+
+### Endpoint: POST <u>/users/upload-image-profile</u>
+
+#### Request Body:
+
+```json
+{
+    "email": "admin@apiiwdev.my.id",
+    "otp": "...",
+    "password": "ApiiwDevs"
+}
+```
+
+### Response (Success)
+
+```json
+{
+    "data": {
+        "message": "Password berhasil diubah."
+        "statusCode": 200
+    }
+}
+```
+
+### Reponse (Failed)
+
+```json
+{
+    "error": {
+        "message": "...",
+        "statusCode": 400 | 500
+    }
+}
+```
+
+---
+
+
+## Upload Photo Profile
+
+### Endpoint: POST <u>/users/upload-image-profile</u>
+
+#### Request Body:
+
+```json
+const formData = new FormData();
+formData.append('file', file);
+{
+    "file": formdata,
+    "userId": "3f45a2ee-5269-4176-b99e-3e24514a198f"
+}
+
+"headers": {
+    "Content-Type": "multipart/form-data", "Authorization": `Bearer ${token}` 
+}
+```
+
+#### Response (Success)
+
+```json
+{
+    "data": {
+        "message": "Foto profil berhasil diunggah",
+        "imageUrl": `/${uploadPath}`,
+        "statusCode": 201,
+    }
+}
+```
+
+#### Reponse (Failed)
+
+```json
+{
+    "error": {
+        "message": "...",
+        "statusCode": 400 | 500
+    }
+}
+```
+
+---
+
+## Update User
+
+### Endpoint: POST <u>/users/update-user</u>
+
+#### Request Body:
+
+```json
+{
+    "userId": "3f45a2ee-5269-4176-b99e-3e24514a198f"
+}
+
+"headers": {
+    "Content-Type": "multipart/form-data", "Authorization": `Bearer ${token}` 
+}
+```
+
+#### Response (Success)
+
+```json
+{
+    "": {
+        "": "Mohon cek email: admin@apiiwdev.my.id, kode OTP Berlaku 15 Menit.",
+        "statusCode": 201
+    }
+}
+```
+
+#### Response (Failed)
+
+```json
+{
+    "error": {
+        "message": "...",
+        "statusCode": 400 | 500
+    }
+}
+
+```
+
+---
+
+## Verify Update User
+
+### Endpoint: POST <u>/users/verify-update-user</u>
+
+#### Request Body:
+
+```json
+{
+    "userId": "3f45a2ee-5269-4176-b99e-3e24514a198f",
+    "otp": "...",
+    "data": ".."
+}
+
+"headers": {
+    "Content-Type": "multipart/form-data", "Authorization": `Bearer ${token}` 
+}
+```
+
+#### Response (Success)
+
+```json
+{
+    "data": {
+        "message": "Data berhasil diubah.",
+        "statusCode": 200
+    }
+}
+```
+
+#### Response (Failed)
+
+```json
+{
+    "error": {
+        "message": "...",
+        "statusCode": 400 | 500
+    }
+}
+```
+
+---
