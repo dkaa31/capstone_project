@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -18,7 +18,7 @@ h1, h2, p {
     text-align: center;
 }
 
-/* Landing Page */
+
 #landing-page {
     background-color: #003399;
     height: 100vh;
@@ -42,5 +42,3 @@ h1, h2, p {
 #landing-page p {
     font-size: 1.2rem;
 }
-
-/*
