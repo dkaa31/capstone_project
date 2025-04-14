@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Buddy - Notification</title>
+</head>
+<body style="margin: 0; font-family: Arial, sans-serif; background-color: #e6f0ff; color: #003399;">
+    <!-- Header -->
+    <header style="padding: 20px; display: flex; align-items: center; background-color: #e6f0ff; border-bottom: 1px solid #ccd9f2;">
+        <button style="background: none; border: none; cursor: pointer; font-size: 1.5rem;">←</button>
+        <h1 style="margin: 0 auto; font-size: 1.5rem;">Notification</h1>
+    </header>
+
+    <!-- Notification List -->
+    <div style="padding: 20px;">
+        <!-- Today's Notifications -->
+        <h3 style="margin: 0 0 15px; color: #003399;">Hari ini</h3>
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <!-- Notification Item -->
+            <div style="background-color: #ffffff; border-radius: 10px; padding: 15px; display: flex; gap: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <div style="width: 40px; height: 40px; background-color: #003399; border-radius: 5px; display: flex; justify-content: center; align-items: center;">
+                    <img src="message-icon.png" alt="Message" style="width: 24px; height: 24px;">
+                </div>
+                <div style="flex: 1;">
+                    <h4 style="margin: 0 0 5px; font-size: 1rem;">Pencatatan Berhasil</h4>
+                    <p style="margin: 0; color: #666; font-size: 0.9rem;">Pencatatan pemasukan telah berhasil tersimpan</p>
+                </div>
+            </div>
+            <!-- Duplicate notification item for multiple notifications -->
+        </div>
+
+        <!-- Previous Date Notifications -->
+        <h3 style="margin: 30px 0 15px; color: #003399;">29 Mar 2025</h3>
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <!-- Notification Item -->
+            <div style="background-color: #ffffff; border-radius: 10px; padding: 15px; display: flex; gap: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <div style="width: 40px; height: 40px; background-color: #003399; border-radius: 5px; display: flex; justify-content: center; align-items: center;">
+                    <img src="message-icon.png" alt="Message" style="width: 24px; height: 24px;">
+                </div>
+                <div style="flex: 1;">
+                    <h4 style="margin: 0 0 5px; font-size: 1rem;">Pencatatan Berhasil</h4>
+                    <p style="margin: 0; color: #666; font-size: 0.9rem;">Pencatatan pengeluaran telah berhasil tersimpan</p>
+                </div>
+            </div>
+            <!-- Duplicate notification item for multiple notifications -->
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav style="position: fixed; bottom: 0; width: 100%; background-color: #003399; padding: 15px 0; display: flex; justify-content: space-around;">
+        <a href="#" style="text-decoration: none; color: #ffffff; text-align: center;">
+            <img src="home-icon.png" alt="HOME" style="width: 24px; height: 24px;">
+            <p style="margin: 5px 0; font-size: 0.8rem;">HOME</p>
+        </a>
+        <a href="#" style="text-decoration: none; color: #ffffff; text-align: center;">
+            <img src="history-icon.png" alt="HISTORY" style="width: 24px; height: 24px;">
+            <p style="margin: 5px 0; font-size: 0.8rem;">HISTORY</p>
+        </a>
+        <a href="#" style="text-decoration: none; color: #ffffff; text-align: center;">
+            <img src="analysis-icon.png" alt="ANALYSIS" style="width: 24px; height: 24px;">
+            <p style="margin: 5px 0; font-size: 0.8rem;">ANALYSIS</p>
+        </a>
+        <a href="#" style="text-decoration: none; color: #ffffff; text-align: center;">
+            <img src="account-icon.png" alt="ACCOUNT" style="width: 24px; height: 24px;">
+            <p style="margin: 5px 0; font-size: 0.8rem;">ACCOUNT</p>
+        </a>
+    </nav>
+</body>
+</html>
