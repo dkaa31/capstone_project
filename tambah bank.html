@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Rekening</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #d0e7ff;">
+    
+    <div style="background-color: #d0e7ff; color: #002366; text-align: center; padding: 15px 0; font-size: 20px; font-weight: bold; position: relative;">
+        <a href="#" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #002366; text-decoration: none;">←</a>
+        Tambah Rekening
+    </div>
+
+    <div style="margin: 20px;">
+        <p style="font-size: 14px; color: #333; margin-bottom: 20px;">
+            Yuk, Tambahkan Rekening Kamu!<br>
+            Masukkan detail rekening biar kamu bisa mulai transaksi dengan mudah dan aman.
+        </p>
+        <p style="font-size: 16px; font-weight: bold; color: #333; margin-bottom: 10px;">Tambahkan Rekening</p>
+        
+        <div style="margin-bottom: 20px;">
+            <label for="bank" style="display: block; font-size: 14px; color: #333; margin-bottom: 5px;">Pilih Bank</label>
+            <div style="display: flex; align-items: center; justify-content: space-between; background-color: white; border-radius: 5px; padding: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                <select id="bank" style="border: none; outline: none; font-size: 16px; width: 100%; background-color: transparent;">
+                    <option value="BCA">BCA</option>
+                    <option value="Mandiri">Mandiri</option>
+                    <option value="BRI">BRI</option>
+                    <option value="BNI">BNI</option>
+                </select>
+                <span style="font-size: 16px; color: #888;">➔</span>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label for="rekening" style="display: block; font-size: 14px; color: #333; margin-bottom: 5px;">Tambahkan Nomor Rekening</label>
+            <input type="text" id="rekening" placeholder="Masukkan Nomor Rekening" style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+        </div>
+
+        <a href="#" style="display: block; width: 100%; padding: 10px; font-size: 16px; font-weight: bold; color: white; background-color: #002366; border: none; border-radius: 5px; text-align: center; text-decoration: none;">SIMPAN</a>
+    </div>
+</body>
+</html>
